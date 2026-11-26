@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="Учебная цифровая карточка компрессора КМ-014 в проекте QR-маркировки узлов тепловоза.">
+<title>Компрессор КМ-014 · Цифровой паспорт узла</title>
+<link rel="stylesheet" href="./style.css">
+<script type="importmap">{"imports":{"three":"./vendor/three.module.min.js"}}</script>
+<script type="module" src="./viewer.js"></script>
+</head>
+<body>
+<header class="mast">
+  <div class="wrap">
+    <p class="eyebrow">ПРОЕКТ QR-МАРКИРОВКИ ТПС</p>
+    <h1>Компрессор КМ-014</h1>
+    <p class="deck">Цифровой паспорт узла тепловоза ТЭМ18ДМ</p>
+    <span class="stamp">Учебный экземпляр</span>
+  </div>
+</header>
+<main class="wrap">
+  <nav class="jump" aria-label="Разделы карточки">
+    <a href="#passport">Паспорт</a><a href="#model">3D-модель</a><a href="#history">История ТОиР</a><a href="#docs">Документация</a>
+  </nav>
+  <div class="overview">
+    <section id="passport" aria-labelledby="passport-title">
+      <p class="eyebrow">ИДЕНТИФИКАЦИЯ</p>
+      <h2 id="passport-title">Паспорт узла</h2>
+      <p class="lede">Метка на корпусе ведёт к карточке конкретного компрессора. Здесь можно сверить номер узла, посмотреть его историю и открыть материалы по типу оборудования.</p>
+      <dl class="spec">
+        <div><dt>Номер на QR-метке</dt><dd>КМ-014</dd></div>
+        <div><dt>Тип компрессора</dt><dd>КТ6</dd></div>
+        <div><dt>Серия тепловоза</dt><dd>ТЭМ18ДМ</dd></div>
+        <div><dt>Система</dt><dd>Пневматическое оборудование</dd></div>
+        <div><dt>Привязка в примере</dt><dd>ТЭМ18ДМ, учебный борт 014</dd></div>
+      </dl>
+      <p class="hint">Привязка к борту, идентификатор и записи обслуживания условные. Характеристики типа КТ6 приведены по руководству по эксплуатации.</p>
+    </section>
+    <section id="model" class="model" aria-labelledby="model-title">
+      <div class="model-heading">
+        <div><p class="eyebrow">КОНСТРУКЦИЯ</p><h2 id="model-title">Компрессор в 3D</h2></div>
+        <a class="subtle" href="./kt6.glb" download="kompressor-kt6.glb">Скачать GLB</a>
+      </div>
+      <div class="stage" id="stage">
+        <img id="poster" src="./kt6-preview.jpg" width="1200" height="840" alt="Учебная модель КТ6 с тремя цилиндрами и промежуточным охладителем">
+        <div class="stage-actions">
+          <button id="load-model" type="button">Открыть 3D</button>
+          <div id="view-controls" class="view-controls" hidden>
+            <button type="button" id="front">Спереди</button><button type="button" id="back">Со стороны вентилятора</button><button type="button" id="reset">Сбросить</button>
+            <button type="button" id="zoom-out" aria-label="Уменьшить" hidden>−</button><button type="button" id="zoom-in" aria-label="Увеличить" hidden>+</button>
+          </div>
+        </div>
+      </div>
+      <p id="viewer-status" class="hint viewer-status" role="status">Откройте 3D, чтобы повернуть модель и рассмотреть детали.</p>
+      <div class="parts" id="parts" hidden aria-label="Части компрессора">
+        <button type="button" data-part="case" aria-pressed="false">Картер</button>
+        <button type="button" data-part="low" aria-pressed="false">I ступень</button>
+        <button type="button" data-part="high" aria-pressed="false">II ступень</button>
+        <button type="button" data-part="cooler" aria-pressed="false">Охладитель</button>
+        <button type="button" data-part="filters" aria-pressed="false">Фильтры</button>
+      </div>
+      <p id="part-info" class="part-info" hidden aria-live="polite"></p>
+      <p class="hint">Учебная модель внешнего вида по рисунку 1 из руководства ТЭМ18ДМ. Размеры и детали упрощены.</p>
+    </section>
+  </div>
+  <section class="section" id="specs" aria-labelledby="specs-title">
+    <p class="eyebrow">СПРАВОЧНЫЕ ДАННЫЕ</p>
+    <h2 id="specs-title">Характеристики типа КТ6</h2>
+    <p class="lede">КТ6 подаёт сжатый воздух в пневматические системы тепловоза. Два боковых цилиндра относятся к первой ступени сжатия, центральный — ко второй.</p>
+    <dl class="spec technical">
+      <div><dt>Тип</dt><dd>Поршневой, двухступенчатый</dd></div>
+      <div><dt>Цилиндры</dt><dd>3, по W-образной схеме</dd></div>
+      <div><dt>Подача при 750 об/мин</dt><dd>4,62 м³/мин</dd></div>
+      <div><dt>Противодавление II ступени</dt><dd>0,74–0,83 МПа</dd></div>
+      <div><dt>Мощность при 750 об/мин</dt><dd>39 кВт</dd></div>
+      <div><dt>Привод на ТЭМ18ДМ</dt><dd>Механический, от вала дизеля</dd></div>
+    </dl>
+    <p class="hint">Источник — <a href="https://zinref.ru/000_uchebniki/04600_raznie_6/433_TEM_18DM_rukovodstvo_2009/002.htm" target="_blank" rel="noopener noreferrer">руководство по эксплуатации ТЭМ18ДМ, ч. 2</a>.</p>
+  </section>
+  <section class="section" id="history" aria-labelledby="history-title">
+    <p class="eyebrow">УЧЕБНЫЕ ЗАПИСИ</p>
+    <h2 id="history-title">История ТОиР</h2>
+    <div class="history">
+      <article><time datetime="2026-11-18">18.11.2026</time><div><h3>Плановый осмотр</h3><p>При внешнем осмотре замечаний не зафиксировано.</p><small>Запись ТО-014-03</small></div></article>
+      <article><time datetime="2026-10-29">29.10.2026</time><div><h3>Замечание по воздушному фильтру закрыто</h3><p>В карточке зафиксированы замена фильтрующего элемента и закрытие замечания.</p><small>Запись ТО-014-02</small></div></article>
+      <article><time datetime="2026-10-12">12.10.2026</time><div><h3>Узел внесён в реестр</h3><p>Карточку КМ-014 связали с учебным бортом 014 и выпустили QR-метку.</p><small>Запись ТО-014-01</small></div></article>
+    </div>
+  </section>
+  <section class="section" id="docs" aria-labelledby="docs-title">
+    <p class="eyebrow">МАТЕРИАЛЫ ПО УЗЛУ</p>
+    <h2 id="docs-title">Документация</h2>
+    <div class="documents">
+      <a href="https://rcit.su/techinfoV42.html" target="_blank" rel="noopener noreferrer"><strong>Устройство компрессора КТ6</strong><span>Руководство ТЭМ18ДМ, книга 5. Описание и рисунок 1.</span></a>
+      <a href="https://rcit.su/techinfoV61.html" target="_blank" rel="noopener noreferrer"><strong>Перечень работ при ТО и текущем ремонте</strong><span>Руководство ТЭМ18ДМ, книга 3, глава 3, подраздел 3.1.</span></a>
+    </div>
+    <details>
+      <summary>Что фиксируют в карточке после осмотра</summary>
+      <p>Номер узла, дату и вид работ, замечания и статус их устранения. В рабочей системе запись связывают с нарядом, а документацию — с модификацией узла и её действующей редакцией.</p>
+    </details>
+  </section>
+  <footer>Демонстрация проекта по дисциплине «Проектная деятельность». Карточка и 3D-модель предназначены для учебного показа.</footer>
+</main>
+</body>
+</html>
